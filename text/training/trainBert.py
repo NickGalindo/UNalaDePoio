@@ -24,7 +24,7 @@ label_encoding = {'NINGUNA':0, 'MINERIA':1, 'DEFORESTACION':2, 'CONTAMINACION':3
 # Definir una clase para el conjunto de datos
 class DocDataset(torch.utils.data.Dataset):
     def __init__(self, encodings, labels):
-         """
+        """
         Inicializa un conjunto de datos para el modelo.
 
         :param encodings: Los encodings de entrada.

@@ -3,7 +3,7 @@ from lxml import etree
 import requests
 
 def __getInfo(url):
-     """
+    """
     Obtener información de texto de una URL.
 
     Args:
