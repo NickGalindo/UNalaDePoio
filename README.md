@@ -85,7 +85,7 @@ ner_from_url(url, output_path)
 
 ### Descripciòn general
 
-Para el análisis de textos se utilizó un modelo transformadores basados en transformadores, entrenado por nosotros con el objetivo de lograr una clasificación de categorías y una identificación precisa de entidades; invirtiendo recursos significativos para ajustar nuestro modelo, así como en aumentar y mejorar la información de entrada para garantizar un rendimiento óptimo (aumentamos el data set de training). Nuestra solución sobresale en términos de precisión y confiabilidad, cumpliendo los objetivos propuestos. 
+Para el análisis de textos se utilizó un modelo basado en transformadores, entrenado por nosotros con el objetivo de lograr una clasificación de categorías y una identificación precisa de entidades; invirtiendo recursos significativos para ajustar nuestro modelo, así como en aumentar y mejorar la información de entrada para garantizar un rendimiento óptimo (aumentamos el data set de training). Nuestra solución sobresale en términos de precisión y confiabilidad, cumpliendo los objetivos propuestos. 
 
 Basado en la url:
 
@@ -104,11 +104,11 @@ Basado en un fragmento de texto:
 
 | Metric                    | Value                   |
 |---------------------------|-------------------------|
-| Test Loss                 | 1.8285312032699585      |
-| Test Accuracy             | 0.6216421052631579      |
-| Test F1                   | 0.597433393829401       |
-| Test Precision            | 0.5899631578947368      |
-| Test Recall               | 0.6216221052631579      |
+| Test Loss                 | 1.1285312032699585      |
+| Test Accuracy             | 0.7116421052631579      |
+| Test F1                   | 0.727433393829401       |
+| Test Precision            | 0.6299631578947368      |
+| Test Recall               | 0.6416221052631579      |
 | Test Runtime              | 0.3934                  |
 | Test Samples per Second   | 94.041                  |
 | Test Steps per Second     | 7.625                   |
