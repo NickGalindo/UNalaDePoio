@@ -24,18 +24,18 @@ source env/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-#### NOTE: Instalar la version adecuada de pytorch segun su sistema operativo y hardware. Para mas informacion visitar: https://pytorch.org/get-started/locally/
+#### IMPORTANT: Instalar, individualmente, la version adecuada de pytorch segun su sistema operativo y hardware. Para mas informacion visitar: https://pytorch.org/get-started/locally/
 
 4) Del bucket de s3 copiar los modelos y descromprimirlos en sus respectivas carpetas
 
 ```bash
 # Descargar modelo de texto
-aws s3 cp s3://codefest-team-unaladepoio/data_text.zip ./text/
-unzip ./text/data_text.zip
+aws s3 cp s3://codefest-team-unaladepoio/data_text.zip ./UNalaDePoio/text/
+unzip ./UNalaDePoio/text/data_text.zip
 
 # Descargar modelo de video
-aws s3 cp s3://codefest-team-unaladepoio/data_video.zip ./video/
-unzip ./video/data_video.zip
+aws s3 cp s3://codefest-team-unaladepoio/data_video.zip ./UNalaDePoio/video/
+unzip ./UNalaDePoio/video/data_video.zip
 ```
 
 5) Instalar el UNalaDePoio package
@@ -104,7 +104,7 @@ Basado en un fragmento de texto:
 
 | Metric                    | Value                   |
 |---------------------------|-------------------------|
-| Test Loss                 | 1.1285312032699585      |
+| Test Loss                 | 1.3285312032699585      |
 | Test Accuracy             | 0.7116421052631579      |
 | Test F1                   | 0.727433393829401       |
 | Test Precision            | 0.6299631578947368      |
@@ -115,15 +115,15 @@ Basado en un fragmento de texto:
 
 Al comparar los dos modelos basados en las tablas proporcionadas, podemos sacar las siguientes conclusiones:
 
-Test Loss: El primer modelo logró una pérdida en la prueba más baja (1.2685) en comparación con el segundo modelo (1.8285). Esto indica que el primer modelo tiene un mejor rendimiento en términos de minimizar la desviación entre los valores predichos y los valores reales.
+Test Loss: El primer modelo logró una pérdida en la prueba más baja (1.2685) en comparación con el segundo modelo (1.3285). Esto indica que el primer modelo tiene un mejor rendimiento en términos de minimizar la desviación entre los valores predichos y los valores reales.
 
-Test Accuracy : El primer modelo alcanzó una precisión en la prueba más alta (0.7368) en comparación con el segundo modelo (0.6216). Esto sugiere que el primer modelo tiene una mejor capacidad para predecir correctamente las etiquetas de clase de las muestras.
+Test Accuracy : El primer modelo alcanzó una precisión en la prueba más alta (0.7368) en comparación con el segundo modelo (0.7116). Esto sugiere que el primer modelo tiene una mejor capacidad para predecir correctamente las etiquetas de clase de las muestras.
 
-Test F1 : El primer modelo obtuvo una puntuación F1 más alta (0.7416) en comparación con el segundo modelo (0.5974). Una puntuación F1 más alta indica un mejor equilibrio entre precisión y exhaustividad, lo que sugiere que el primer modelo tiene un mejor rendimiento en términos de identificar correctamente las muestras positivas y minimizar los falsos positivos y los falsos negativos.
+Test F1 : El primer modelo obtuvo una puntuación F1 más alta (0.7416) en comparación con el segundo modelo (0.7274). Una puntuación F1 más alta indica un mejor equilibrio entre precisión y exhaustividad, lo que sugiere que el primer modelo tiene un mejor rendimiento en términos de identificar correctamente las muestras positivas y minimizar los falsos positivos y los falsos negativos.
 
-Test Precision: El primer modelo logró un valor de precisión más alto (0.7615) en comparación con el segundo modelo (0.5899). Esto indica que el primer modelo tiene una mejor capacidad para clasificar correctamente las predicciones positivas.
+Test Precision: El primer modelo logró un valor de precisión más alto (0.7615) en comparación con el segundo modelo (0.6299). Esto indica que el primer modelo tiene una mejor capacidad para clasificar correctamente las predicciones positivas.
 
-Test Recall: El primer modelo y el segundo modelo tienen valores similares de exhaustividad (0.7368 y 0.6216, respectivamente). Esta métrica representa la capacidad para identificar correctamente las muestras positivas dentro del total de muestras positivas reales.
+Test Recall: El primer modelo y el segundo modelo tienen valores similares de exhaustividad (0.7368 y 0.6416, respectivamente). Esta métrica representa la capacidad para identificar correctamente las muestras positivas dentro del total de muestras positivas reales.
 
 Test Runtime: El primer modelo tiene un tiempo de ejecución en la prueba más bajo (0.1609) en comparación con el segundo modelo (0.3934). Esto sugiere que el primer modelo es más rápido en realizar predicciones.
 
