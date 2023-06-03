@@ -27,18 +27,18 @@ class DocDataset(torch.utils.data.Dataset):
         """
         Inicializa un conjunto de datos para el modelo.
 
-        :param encodings: Los encodings de entrada.
-        :param labels: Las etiquetas de los datos.
+        :param encodings: The input encodings.
+        :param labels: The data labels.
         """
         self.encodings = encodings
         self.labels = [label_encoding[i] for i in labels]
 
     def __getitem__(self, idx):
         """
-        Obtiene un elemento del conjunto de datos.
+        Gets an item from the dataset.
 
-        :param idx: El índice del elemento.
-        :return: El elemento en la posición `idx`.
+        :param idx: The index of the item.
+        :return: The item at position `idx`.
         """
         item = {key: val[idx] for key, val in self.encodings.items()}
         item['labels'] = torch.tensor(self.labels[idx])
@@ -46,18 +46,18 @@ class DocDataset(torch.utils.data.Dataset):
 
     def __len__(self):
         """
-        Obtiene la longitud del conjunto de datos.
+        Gets the length of the dataset.
 
-        :return: La longitud del conjunto de datos.
+        :return: The length of the dataset.
         """
         return len(self.labels)
 
 def __compute_metrics(pred):
     """
-    Calcula las métricas de evaluación para un conjunto de predicciones.
+    Calculates evaluation metrics for a set of predictions.
 
-    :param pred: El objeto de predicciones.
-    :return: Un diccionario con las métricas calculadas.
+    :param pred: The predictions object.
+    :return: A dictionary with the calculated metrics.
     """
     labels = pred.label_ids
     preds = pred.predictions.argmax(-1)
@@ -75,12 +75,12 @@ def __preprocessDataframeDatasets(
         eval_df: pd.DataFrame, 
         valid_df: pd.DataFrame):
     """
-    Preprocesa los datos del archivo y los convierte en conjuntos de datos.
+    Preprocesses the data from the dataframe and converts them into datasets.
 
-    :param training_df: el dataframe de entrenamiento con los datos correspondientes
-    :param eval_df: el dataframe de evaluación con los datos correspondientes
-    :param valid_df: el dataframe de validación con los datos correspondientes
-    :return: un diccionario con los conjuntos de datos preprocesados
+    :param training_df: The training dataframe with the corresponding data.
+    :param eval_df: The evaluation dataframe with the corresponding data.
+    :param valid_df: The validation dataframe with the corresponding data.
+    :return: A dictionary with the preprocessed datasets.
     """
 
 
@@ -112,14 +112,14 @@ def bertBaseSpanishUncasedFinetune(
         save_dir: str=os.path.join(LOCAL, "text", "data", "tmp")):
 
     """
-    Ejecuta bert base spanish uncased
+    Executes bert base Spanish uncased.
 
-    :param training_df: el dataframe de entrenamiento con los datos correspondientes
-    :param evaluation_df: el dataframe de evaluación con los datos correspondientes
-    :param validation_df: el dataframe de validación con los datos correspondientes
-    :param train_epochs: la cantidad de épocas para entrenar
-    :param batch_size: el tamaño del lote para ejecutar el entrenamiento
-    :param learning_rate: la tasa de aprendizaje para ejecutar el entrenamiento
+    :param training_df: The training dataframe with the corresponding data.
+    :param evaluation_df: The evaluation dataframe with the corresponding data.
+    :param validation_df: The validation dataframe with the corresponding data.
+    :param train_epochs: The number of epochs to train.
+    :param batch_size: The batch size to run the training.
+    :param learning_rate: The learning rate to use for training.
     """
 
     # Cargar los datos del archivo y preprocesarlos
@@ -149,15 +149,15 @@ def __runBertTraining(
         learning_rate: float,
         save_dir: str):
     """
-    Ejecuta un entrenamiento de BERT con un modelo, un tokenizador y un flujo de datos específicos.
+    Executes BERT training with a specific model, tokenizer, and data stream.
 
-    :param model_name: el nombre del modelo en el que se entrenará
-    :param data_stream: los datos a utilizar
-    :param train_epochs: las épocas de entrenamiento a ejecutar
-    :param batch_size: el tamaño del lote para ejecutar
-    :param learning_rate: la tasa de aprendizaje a utilizar
-    :param save_dir: el directorio para guardar el modelo
-    :return: el modelo y el tokenizador entrenados
+    :param model_name: The name of the model to train on.
+    :param data_stream: The data to use.
+    :param train_epochs: The training epochs to execute.
+    :param batch_size: The batch size to execute.
+    :param learning_rate: The learning rate to use.
+    :param save_dir: The directory to save the model.
+    :return: The trained model and tokenizer.
     """
 
     # Cargar el tokenizer y el modelo para el entrenamiento desde un modelo pre-entrenado

@@ -1,33 +1,32 @@
 from flair.data import Sentence
 from flair.models import SequenceTagger
 
-# Cargar el modelo de etiquetador de secuencia preentrenado
+# Load the pre-trained sequence tagger model
 tagger = SequenceTagger.load("flair/ner-english-ontonotes-large")
 
 def getEntities(s: str):
     """
-    Obtener las entidades nombradas de una frase.
+    Get named entities from a sentence.
 
     Args:
-        s (str): La frase de entrada.
+        s (str): The input sentence.
 
     Returns:
-        dict: Un diccionario que contiene las predicciones de las entidades.
-            Las entidades se agrupan en las siguientes categorías: 'misc', 'dates', 'loc', 'org', 'per'.
+        dict: A dictionary containing the predicted entities.
+            Entities are grouped into the following categories: 'misc', 'dates', 'loc', 'org', 'per'.
     """
-    # Crear un objeto de frase a partir del texto de entrada
+    # Create a sentence object from the input text
     sent = Sentence(s)
-    # Realizar la predicción de las entidades nombradas en la frase
+    # Predict the named entities in the sentence
     tagger.predict(sent)
 
-    # Inicializar un diccionario para almacenar las predicciones de las entidades
+    # Initialize a dictionary to store the entity predictions
     predictions_set = {"misc": set(), "dates": set(), "loc": set(), "org": set(), "per": set()}
 
-    # Iterar sobre las entidades predichas en la frase
+    # Iterate over the predicted entities in the sentence
     for entity in sent.get_spans('ner'):
         if entity.text and entity.text != "":
-            # Agregar el texto de la entidad al tipo correspondiente en el diccionario de predicciones
-
+            # Add the entity text to the corresponding type in the predictions dictionary
             if entity.tag == "PERSON":
                 predictions_set["per"].add(entity.text)
             elif entity.tag == "GPE":
@@ -48,5 +47,5 @@ def getEntities(s: str):
 
 
 if __name__ == "__main__":
-    # Ejemplo de uso: obtener las entidades nombradas de una frase
+    # Example usage: get named entities from a sentence
     print(getEntities("Hay algo que me gusta de ti Don Omar y ese algo me encanta en Colombia con personas de las Naciones Unidas y me vuelve loco volver a 1995. Luego en washington crearon arroz Chino."))
