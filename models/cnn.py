@@ -15,14 +15,21 @@ image_paths = df['image_name'].values
 images = []
 carpeta_padre = os.path.dirname(os.getcwd())
 PATH_IMAGES =  os.path.join(carpeta_padre, 'data', 'images')
+
+# Print the path to the images
 print(PATH_IMAGES)
+
+# Load and preprocess each image
 for image_path in PATH_IMAGES+"/"+image_paths:
     image = load_img(image_path, target_size=(720, 1280))
     image = img_to_array(image)
     images.append(image)
+
+# Convert the images to a numpy array
 X = np.array(images)
 
-print("here")
+# Print a message to indicate the completion of image loading and preprocessing
+print("Images loaded and preprocessed successfully")
 
 # Extract the labels from the DataFrame
 y = df['label_name'].values

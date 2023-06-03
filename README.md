@@ -1,58 +1,28 @@
-# Nombre de la librería
+# UNalaDePoio
 
-Breve descripción de la librería y su funcionalidad.
+Propuesta UNalaDePoio al codefest 2<023
 
 ## Instalación
 
-Instrucciones sobre cómo instalar la librería. Puedes proporcionar el comando de instalación si se encuentra disponible en algún repositorio público.
+Instalar todas las librerìas del requirements.txt
 
-
-## Uso
-
-Breve descripción sobre cómo utilizar la librería y qué problemas resuelve. Puedes mencionar ejemplos de casos de uso.
-
-## Objetivo 1 - video
-
-
-### detect_objects_in_video(video_path, output_path)
-
-Breve descripción del primer método de la librería. Explica qué hace el método y cómo se debe utilizar.
-
-```python
-import nombre_libreria
+```bash
+pip3 install accelerate async-generator attrs certifi charset-normalizer et-xmlfile exceptiongroup filelock fsspec h11 huggingface-hub idna joblib numpy openpyxl packaging pandas Pillow psutil PySocks python-dateutil python-dotenv pytz PyYAML regex requests scikit-learn scipy selenium six sniffio sortedcontainers threadpoolctl tokenizers torch torchaudio torchvision tqdm transformers trio trio-websocket typing_extensions tzdata urllib3 webdriver-manager wsproto
 
 ```
 
-## Objetivo 2 - texto
 
+## Uso - Objetivo 2 (texto)
 
-### ner_from_str(text, output_path) 
+1) Descargar el data.zip en el repositorio y descomprimir su contenido en la carpeta data/
 
-Breve descripción del primer método de la librería. Explica qué hace el método y cómo se debe utilizar.
+2) Invocar los metodos solicitados:
 
-```python
-import nombre_libreria
+ - ner_from_str(text, output_path) 
 
-```
+ - ner_from_file(text_path, output_path) 
 
-### ner_from_file(text_path, output_path) 
-
-Breve descripción del primer método de la librería. Explica qué hace el método y cómo se debe utilizar.
-
-```python
-import nombre_libreria
-
-```
-
-### ner_from_url(url, output_path) 
-
-Breve descripción del primer método de la librería. Explica qué hace el método y cómo se debe utilizar.
-
-```python
-import nombre_libreria
-
-```
-
+ - ner_from_url(url, output_path) 
 
 
 ## Creditos

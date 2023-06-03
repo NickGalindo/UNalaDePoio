@@ -3,14 +3,14 @@ from lxml import etree
 import requests
 
 def __getInfo(url):
-     """
-    Obtener información de texto de una URL.
+    """
+    Get text information from a URL.
 
     Args:
-        url (str): La URL de la página web.
+        url (str): The URL of the web page.
 
     Returns:
-        str: El texto extraído de la página web o "NOT FOUND" si no se encontró texto o se produjo un error.
+        str: The extracted text from the web page or "NOT FOUND" if no text was found or an error occurred.
     """
     try:
         HEADERS = ({'User-Agent':
@@ -35,13 +35,13 @@ def __getInfo(url):
 
 def readUrlText(url: str):
     """
-    Leer el texto de una URL.
+    Read the text from a URL.
 
     Args:
-        url (str): La URL de la página web.
+        url (str): The URL of the web page.
 
     Returns:
-        str: El texto extraído de la página web o "NOT FOUND" si no se encontró texto o se produjo un error.
+        str: The extracted text from the web page or "NOT FOUND" if no text was found or an error occurred.
     """
     text = __getInfo(url)
 
