@@ -15,14 +15,11 @@ def ner_from_str(text: str, output_path: str):
     # Predict named entities and impact from the text
     res = textPredict(text)
 
-    # Convert the result to a JSON string
-    res_json = json.dumps(res)
-
     # Write the JSON string to the output file
-    with open(output_path, "w") as outfile:
-        outfile.write(res_json)
+    with open(output_path, 'w', encoding='utf8') as outfile:
+        json.dump(res, outfile, ensure_ascii=False)
 
-    return res_json
+    return res
 
 def ner_from_file(text_path: str, output_path: str):
     """
@@ -36,20 +33,17 @@ def ner_from_file(text_path: str, output_path: str):
         str: The result as a JSON string.
     """
     # Read the text from the input file
-    with open(text_path, "r") as inpfile:
+    with open(text_path, "r", encoding='utf-8-sig') as inpfile:
         text = inpfile.read()
         
     # Predict named entities and impact from the text
     res = textPredict(text)
     
-    # Convert the result to a JSON string
-    res_json = json.dumps(res)
-
     # Write the JSON string to the output file
-    with open(output_path, "w") as outfile:
-        outfile.write(res_json)
+    with open(output_path, 'w', encoding='utf8') as outfile:
+        json.dump(res, outfile, ensure_ascii=False)
 
-    return res_json
+    return res
 
 def ner_from_url(url: str, output_path: str):
     """
@@ -66,11 +60,8 @@ def ner_from_url(url: str, output_path: str):
     # Predict named entities and impact from the URL
     res = urlPredict(url)
     
-    # Convert the result to a JSON string
-    res_json = json.dumps(res)
-
     # Write the JSON string to the output file
-    with open(output_path, "w") as outfile:
-        outfile.write(res_json)
+    with open(output_path, 'w', encoding='utf8') as outfile:
+        json.dump(res, outfile, ensure_ascii=False)
 
-    return res_json
+    return res
